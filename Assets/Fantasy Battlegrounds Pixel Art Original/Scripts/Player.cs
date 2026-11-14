@@ -31,19 +31,19 @@ namespace FantasyBattlegroundsPixelArtOriginal
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
 
-            rb.linearVelocity = new Vector2(endlessMove ? speed : horizontal * speed, flyMode ? vertical * speed : rb.linearVelocity.y);
+            rb.velocity = new Vector2(endlessMove ? speed : horizontal * speed, flyMode ? vertical * speed : rb.velocity.y);
             rb.gravityScale = flyMode ? 0.0f : 4.0f;
 
             if (!flyMode)
             {
                 if (Input.GetButtonDown("Jump"))
                 {
-                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 }
 
-                if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
+                if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
                 {
-                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
                 }
             }
         }

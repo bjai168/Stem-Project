@@ -23,9 +23,13 @@ public class PlayerDeath : MonoBehaviour
         {
             case "Death":
                 {
-                    SceneManager.LoadScene(thislevel);
+                    Die();
                     break;
                 }
         }
+    }
+    public void Die()
+    {
+        SceneManager.LoadScene(thislevel);
     }
 }

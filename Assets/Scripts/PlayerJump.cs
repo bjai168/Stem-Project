@@ -26,17 +26,13 @@ public class PlayerJump : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
+            Debug.Log("A");
             Jump();
-        }
-
-        if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCutMultiplier);
         }
     }
 
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        rb.AddForce(new Vector2(0, jumpForce));
     }
 }
